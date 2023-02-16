@@ -8,8 +8,9 @@ module.exports.isAdmin = async (req, res, next) => {
     const {email} = req.body;
     // receiving token from the header
     let token = req.headers["x-auth-token"] || req.body.token || req.query.token;
-
+    
     if(token){
+        console.log(token)
         try{
             // decode token with TOKEN key to extract the user
             const decoded = jwt.verify(token,TOKEN_KEY)
